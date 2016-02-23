@@ -62,11 +62,11 @@ function fetchAndSaveCredentials() {
     if (!err && response.statusCode == 200) {
       fs.writeFile('../credentials.json', body, function writeCredentialsCallback (err) {
         if (err) {
-          console.error('error writing credentials.json');
+          console.error('error writing ../credentials.json');
           console.error(err);
           process.exit(1);
         } else {
-          console.error('credentials downloaded - please restart');
+          console.error('credentials downloaded and saved to ../credentials.json - please restart');
           process.exit(0);
         }
       })
@@ -82,11 +82,10 @@ function getIndex (req, res) {
 }
 
 function getClassify (req, res) {
-  console.log(req.params.text);
   var opts = {
     url : classifier.url + '/classify',
     auth : {user : credentials.username, pass : credentials.password, sendImmediately : true },
-    qs : {text : req.params.text}
+    qs : {text : req.query.text}
   };
 
   request(opts, function (err, response, body) {

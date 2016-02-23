@@ -21,3 +21,7 @@
 input[type=text] {
   width: 500px;
 }
+
+#question-response {
+  text-align: left;
+}

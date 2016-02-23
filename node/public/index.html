@@ -20,7 +20,7 @@
       <div class="headline">Watson is still training your classifier.</div>
       <div id="last-status-check"></div>
     </div>
-    <div id="ask-questionff" class="col-md-12" style="display: visible;">
+    <div id="ask-question" class="col-md-12" style="display: visible;">
       <div class="headline row">Have Watson Classify Your Question</div>
       <div class="row question-row">
         <input type="text" id="question" placeholder="ask your question">
@@ -28,7 +28,9 @@
       <div class="row question-row">
         <button class="btn btn-primary" onclick="classifyText(this)">Classify</button>
       </div>
-      <div class="row question-row">
+      <div id="question-response" class="row question-row col-md-12">
+        <div class="row col-md-12" id="question-text"></div>
+        <div class="row col-md-12" id="question-responses-container"></div>
       </div>
     </div>
   </div>

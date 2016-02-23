@@ -21,8 +21,13 @@ function startApplication() {
 function classifyText() {
   var question = $("#question").val();
 
-  console.log($("#question").val());
+  $('#question-text').empty().append('Watson is thinking...');
+  $('#question-responses-container').empty();
   $.getJSON('/classify', {text : question}, function(data) {
-    console.log(data);
+    $('#question-text').html('<span class="you-asked">You asked: </span><span class="your-question">' + question + '</span>');
+    $('#question-responses-container').append('<ul id="question-responses"></ul>');
+    data.classes.forEach(function loopData (elem) {
+      $('#question-responses').append($('<li>' + elem.class_name + '</li>'));
+    });
   });
 }
