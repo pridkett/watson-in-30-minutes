@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>IBM InterConnect 2016 Watson in 30 Minutes Demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"-->
+  <!--integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+<div id="page-container" class="container col-md-12">
+  <h1 class="title">This is the Watson in 30 Minutes Demo Site</h1>
+
+  <div class="row">
+    <div id="loading" class="col-md-12">
+      <div class="headline">Loading...</div>
+    </div>
+    <div id="training-status" class="col-md-12" style="display: none;">
+      <div class="headline">Watson is still training your classifier.</div>
+      <div id="last-status-check"></div>
+    </div>
+    <div id="ask-questionff" class="col-md-12" style="display: visible;">
+      <div class="headline row">Have Watson Classify Your Question</div>
+      <div class="row question-row">
+        <input type="text" id="question" placeholder="ask your question">
+      </div>
+      <div class="row question-row">
+        <button class="btn btn-primary" onclick="classifyText(this)">Classify</button>
+      </div>
+      <div class="row question-row">
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+<script src="/public/app.js"></script>
+<script>
+  $(document).ready(function () {
+    startApplication();
+  })
+</script>
+</body>
+</html>

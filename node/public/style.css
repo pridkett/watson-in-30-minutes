@@ -1,0 +1,23 @@
+#page-container {
+  max-width: 960px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.headline {
+  margin-top: 0.5ex;
+  margin-bottom: 0.5ex;
+}
+
+.question-row {
+  margin-top: 0.5ex;
+  margin-bottom: 0.5ex;
+}
+
+input[type=text] {
+  width: 500px;
+}

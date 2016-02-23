@@ -77,20 +77,54 @@ function fetchAndSaveCredentials() {
   });
 }
 
-function getIndex (request, response) {
-  response.writeHead(200, {"Content-Type": 'text/plain'});
-  response.end("Hello World!\n");
+function getIndex (req, res) {
+  res.sendFile('public/index.html', {root : __dirname});
 }
 
-function getClassify (request, response) {
-  request(credentials.url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log(body);
+function getClassify (req, res) {
+  console.log(req.params.text);
+  var opts = {
+    url : classifier.url + '/classify',
+    auth : {user : credentials.username, pass : credentials.password, sendImmediately : true },
+    qs : {text : req.params.text}
+  };
+
+  request(opts, function (err, response, body) {
+    if (err) {
+      res.error(err);
+    } else {
+      if (response.headers['content-type'] === 'application/json') {
+        res.json(JSON.parse(body));
+      } else {
+        console.log('sending whatever...')
+        res.send(body);
+      }
+    }
+  });
+}
+
+function getStatus (req, res) {
+  var opts = {
+    url: classifier.url,
+    auth : { user: credentials.username, pass: credentials.password, sendImmediately: true }
+  };
+
+  request(opts, function (err, response, body) {
+    if (err) {
+      res.error(err);
+    } else {
+      if (response.headers['content-type'] === 'application/json') {
+        res.json(JSON.parse(body));
+      } else {
+        console.log('sending whatever...')
+        res.send(body);
+      }
     }
   });
 }
 
 module.exports = {
   getIndex : getIndex,
-  getClassify : getClassify
+  getClassify : getClassify,
+  getStatus : getStatus
 };

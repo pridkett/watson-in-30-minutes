@@ -6,9 +6,11 @@ var express = require('express'),
 
 var port = process.env.VCAP_APP_PORT || 8080;
 
-app.use(express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
+
 
 app.get('/classify', routes.getClassify);
+app.get('/status', routes.getStatus);
 app.get("/", routes.getIndex);
 
 app.listen(port);
