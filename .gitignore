@@ -2,4 +2,3 @@ node/.idea
 node/node_modules
 credentials.json
 classifier.json
-training.csv
