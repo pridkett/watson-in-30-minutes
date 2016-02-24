@@ -1,6 +1,6 @@
 'use strict';
 
-function startApplication() {
+function startApplication () {
   $.getJSON('/status', function (data) {
     // if you'd like to see the data run console.log(data)
     console.log(data);
@@ -18,7 +18,7 @@ function startApplication() {
   });
 }
 
-function classifyText() {
+function classifyText () {
   var question = $("#question").val();
 
   $('#question-text').empty().append('Watson is thinking...');
@@ -30,4 +30,10 @@ function classifyText() {
       $('#question-responses').append($('<li>' + elem.class_name + '</li>'));
     });
   });
+}
+
+function detectEnter (evt) {
+  if (evt.keyCode == 13) {
+    classifyText();
+  }
 }

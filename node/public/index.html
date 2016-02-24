@@ -23,10 +23,10 @@
     <div id="ask-question" class="col-md-12" style="display: visible;">
       <div class="headline row">Have Watson Classify Your Question</div>
       <div class="row question-row">
-        <input type="text" id="question" placeholder="ask your question">
+        <input type="text" id="question" placeholder="ask your question...">
       </div>
       <div class="row question-row">
-        <button class="btn btn-primary" onclick="classifyText(this)">Classify</button>
+        <button id="classify-button" class="btn btn-primary" onclick="classifyText(this)">Classify</button>
       </div>
       <div id="question-response" class="row question-row col-md-12">
         <div class="row col-md-12" id="question-text"></div>
@@ -41,8 +41,9 @@
 <script src="/public/app.js"></script>
 <script>
   $(document).ready(function () {
+    $('#question').keyup(detectEnter);
     startApplication();
-  })
+  });
 </script>
 </body>
 </html>
