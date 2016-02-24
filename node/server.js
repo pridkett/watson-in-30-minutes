@@ -13,4 +13,5 @@ app.get('/classify', routes.getClassify);
 app.get('/status', routes.getStatus);
 app.get("/", routes.getIndex);
 
+console.log('Now listening on port ' + port);
 app.listen(port);
