@@ -47,7 +47,7 @@ function displayNoClassifierInformation() {
               }
             });
           } else {
-            console.error(error);
+            console.error(err);
             process.exit(1);
           }
         }
@@ -71,7 +71,7 @@ function fetchAndSaveCredentials() {
         }
       })
     } else {
-      console.error(error);
+      console.error(err);
       process.exit(1);
     }
   });
